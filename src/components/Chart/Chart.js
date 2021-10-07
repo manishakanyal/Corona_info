@@ -15,17 +15,25 @@ const Chart = () =>{
     const lineChart = (
     dailyData[0]
     ?(<Line
+    height={500}
+    width={700}
     data={{
         labels: dailyData.map(({date})=> date),
         datasets: [{
             data: dailyData.map(({ confirmed }) => confirmed),
-            label: 'Infected',
-            bordercolor: '#3333ff',
+            label: 'Confirmed',
+            bordercolor: '#c79500',
             fill: true,
         },{
             data: dailyData.map(({ deaths }) => deaths),
-            label: 'Infected',
+            label: 'Deaths',
             bordercolor: 'red',
+            backgroundColor: 'rgba(255,0,0,0.5)',
+            fill: true,
+        },{
+            data: dailyData.map(({ recovered }) => recovered),
+            label: 'Recovered',
+            bordercolor: 'green',
             backgroundColor: 'rgba(255,0,0,0.5)',
             fill: true,
         }],
